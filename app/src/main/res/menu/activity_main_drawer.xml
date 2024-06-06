@@ -10,8 +10,8 @@
             android:title="Inicio" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/datos"
-            android:title="Datos en tiempo real" />
+            android:icon="@drawable/predicciones"
+            android:title="Predicciones" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/advertencia"
@@ -20,11 +20,11 @@
             android:title="Alertas" />
         <item
             android:id="@+id/temp_fragment"
-            android:icon="@drawable/temp"
-            android:title="Temperatura" />
+            android:icon="@drawable/datos"
+            android:title="Datos en tiempo real" />
         <item
             android:id="@+id/mainActivity"
-            android:icon="@drawable/predicciones"
-            android:title="Predicciones" />
+            android:icon="@drawable/temp"
+            android:title="Temperatura" />
     </group>
 </menu>

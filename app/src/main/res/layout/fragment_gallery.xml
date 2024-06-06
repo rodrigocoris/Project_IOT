@@ -9,6 +9,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estas son las predicciones de temperatura y humedad para tu cultivo de los ultimos 3 meses"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
         <ImageView
             android:id="@+id/imageViewTemperatura"
             android:layout_width="match_parent"
