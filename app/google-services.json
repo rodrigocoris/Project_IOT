@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "517499308027",
+    "firebase_url": "https://dht11firebase2-5c069-default-rtdb.firebaseio.com",
+    "project_id": "dht11firebase2-5c069",
+    "storage_bucket": "dht11firebase2-5c069.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517499308027:android:51dd3c82d3d36e75152d5e",
+        "android_client_info": {
+          "package_name": "com.example.iot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsu3XKcFj3d0YwCj3UljbA7oQDY1doRao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

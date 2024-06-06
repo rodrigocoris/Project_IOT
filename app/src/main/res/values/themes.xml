@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.IOT" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- cambiar el color de la barra de arriba///////////////////////////////////// -->
+       <item name="colorPrimary">@color/verde</item>
+    </style>
+
+    <style name="Theme.IOT" parent="Base.Theme.IOT" />
+    <style name="Theme.IOT.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.IOT.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.IOT.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

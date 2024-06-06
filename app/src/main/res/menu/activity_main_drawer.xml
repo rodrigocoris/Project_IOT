@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/casa"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/datos"
+            android:title="Datos en tiempo real" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/advertencia"
+            android:iconTint="@color/colorOrange"
+            android:itemBackground="@color/colorPrimary"
+            android:title="Alertas" />
+        <item
+            android:id="@+id/temp_fragment"
+            android:icon="@drawable/temp"
+            android:title="Temperatura" />
+        <item
+            android:id="@+id/mainActivity"
+            android:icon="@drawable/predicciones"
+            android:title="Predicciones" />
+    </group>
+</menu>
