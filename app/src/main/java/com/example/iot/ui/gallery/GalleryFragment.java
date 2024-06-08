@@ -10,30 +10,30 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.iot.ImageData;
+import com.example.iot.MyAdapter;
+import com.example.iot.MyAdapter2;
 import com.example.iot.R;
 import com.example.iot.databinding.FragmentGalleryBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
-
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        ImageView imageViewTemperatura = binding.imageViewTemperatura;
-        ImageView imageViewHumedad = binding.imageViewHumedad;
-        ImageView imageViewTemperaturaHumedad = binding.imageViewTemperaturaHumedad;
-
-        // Cargar y mostrar las imágenes desde los recursos
-        imageViewTemperatura.setImageBitmap(loadImageFromResources(R.drawable.temperatura));
-        imageViewHumedad.setImageBitmap(loadImageFromResources(R.drawable.humedad));
-        imageViewTemperaturaHumedad.setImageBitmap(loadImageFromResources(R.drawable.temperatura_humedad));
+        RecyclerView recyclerView = binding.recyclerView;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(new MyAdapter2(getImageData()));
 
         return root;
     }
@@ -44,7 +44,14 @@ public class GalleryFragment extends Fragment {
         binding = null;
     }
 
-    private Bitmap loadImageFromResources(int resId) {
-        return BitmapFactory.decodeResource(getResources(), resId);
+    private List<ImageData> getImageData() {
+        List<ImageData> imageDataList = new ArrayList<>();
+        imageDataList.add(new ImageData(R.drawable.temperatura, "Temperatura"));
+        imageDataList.add(new ImageData(R.drawable.humedad, "Humedad"));
+        imageDataList.add(new ImageData(R.drawable.temperatura_humedad, "Temperatura y Humedad"));
+        imageDataList.add(new ImageData(R.drawable.boxplot_predicciones_humedad, "Predicciones Humedad"));
+        imageDataList.add(new ImageData(R.drawable.boxplot_predicciones_temperatura, "Predicciones Temperatura"));
+        imageDataList.add(new ImageData(R.drawable.boxplot_temperatura_humedad, "Predicciones Temperatura y Humedad"));
+        return imageDataList;
     }
 }

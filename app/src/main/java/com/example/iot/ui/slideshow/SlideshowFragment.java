@@ -70,9 +70,9 @@ public class SlideshowFragment extends Fragment {
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-                .setSmallIcon(R.drawable.jardineria) // Reemplaza con tu icono
+                .setSmallIcon(R.drawable.jardineria)
                 .setContentTitle("iPlanta")
-                .setContentText("La temperatura es de 36° tienes que mover tu cultivo")
+                .setContentText("La temperatura es de 23° no tienes que mover tu cultivo")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireContext());

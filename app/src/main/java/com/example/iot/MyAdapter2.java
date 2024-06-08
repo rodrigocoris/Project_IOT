@@ -11,24 +11,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
-    private List<String> dataList;
+    private List<ImageData> dataList;
 
-    public MyAdapter(List<String> dataList) {
+    public MyAdapter2(List<ImageData> dataList) {
         this.dataList = dataList;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item_image, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.textView.setText(dataList.get(position));
+        ImageData imageData = dataList.get(position);
+        holder.imageView.setImageResource(imageData.getImageResId());
+        holder.textView.setText(imageData.getDescription());
     }
 
     @Override
@@ -37,11 +39,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
         TextView textView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(android.R.id.text1);
+            imageView = itemView.findViewById(R.id.itemImage);
+            textView = itemView.findViewById(R.id.itemText);
         }
     }
 }
+
