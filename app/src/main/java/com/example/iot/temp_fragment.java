@@ -15,6 +15,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +27,10 @@ public class temp_fragment extends Fragment {
     private RecyclerView recyclerView;
     private MyAdapter adapter;
     private List<String> dataList;
+    private String lastFecha = "";
+    private String lastHora = "";
+    private String lastTemperature = "";
+    private String lastHumidity = "";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +50,7 @@ public class temp_fragment extends Fragment {
 
         // Obtener referencia a la base de datos de Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("Dato"); // nombre de referencia de Firebase
+        DatabaseReference reference = database.getReference("Lecturas"); // nombre de referencia de Firebase
 
         // Leer datos de Firebase en tiempo real
         ValueEventListener valueEventListener = new ValueEventListener() {
@@ -51,8 +59,39 @@ public class temp_fragment extends Fragment {
                 if (snapshot.exists()) {
                     dataList.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        String data = dataSnapshot.getValue(String.class);
-                        dataList.add(data);
+                        String json = dataSnapshot.getValue(String.class);
+
+                        // Convertir el JSON a un objeto con Gson
+                        try {
+                            JSONObject dataObject = new JSONObject(json);
+                            String fecha = dataObject.optString("Fecha", "");
+                            String hora = dataObject.optString("Hora", "");
+                            String temperatura = dataObject.optString("Temperatura", "");
+                            String humedad = dataObject.optString("Humedad", "");
+
+                            // Comprobar si alguno de los datos ha cambiado
+                            boolean isFechaChanged = !fecha.equals(lastFecha);
+                            boolean isHoraChanged = !hora.equals(lastHora);
+                            boolean isTemperatureChanged = !temperatura.equals(lastTemperature);
+                            boolean isHumidityChanged = !humedad.equals(lastHumidity);
+
+                            // Actualizar último valor de los datos
+                            if (isFechaChanged || isHoraChanged || isTemperatureChanged || isHumidityChanged) {
+                                lastFecha = fecha;
+                                lastHora = hora;
+                                lastTemperature = temperatura;
+                                lastHumidity = humedad;
+
+                                // Formatear la cadena de datos a agregar
+                                String data = String.format("Fecha: %s\nHora: %s\nTemperatura: %s°C\nHumedad: %s%%\n",
+                                        fecha, hora, temperatura, humedad);
+
+
+                                dataList.add(data);
+                            }
+                        } catch (JSONException e) {
+                            Log.e("TempFragment", "Error al convertir JSON:", e);
+                        }
                     }
                     adapter.notifyDataSetChanged();
                     // Desplazarse al último elemento
