@@ -32,4 +32,18 @@
         android:name="com.example.iot.temp_fragment"
         android:label="Temperatura"
         tools:layout="@layout/fragment_temp_fragment" />
+    <fragment
+        android:id="@+id/fragment_consejos"
+        android:name="com.example.iot.fragment_consejos"
+        android:label="fragment_consejos"
+        tools:layout="@layout/fragment_consejos" />
+    <fragment
+        android:id="@+id/fragment_calendar"
+        android:name="com.example.iot.fragment_calendar"
+        android:label="fragment_calendar" />
+    <fragment
+        android:id="@+id/fragment_recordatorios"
+        android:name="com.example.iot.fragment_recordatorios"
+        android:label="fragment_recordatorios"
+        tools:layout="@layout/fragment_recordatorios" />
 </navigation>

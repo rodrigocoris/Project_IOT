@@ -99,20 +99,22 @@ public class SlideshowFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    // Obtener el último registro de temperatura
-                    DataSnapshot lastSnapshot = dataSnapshot.getChildren().iterator().next();
-                    String lastValue = lastSnapshot.getValue(String.class);
-                    if (lastValue != null) {
-                        double temperature = extractTemperature(lastValue);
-                        if (temperature > TEMPERATURE_THRESHOLD_HIGH) {
-                            showNotification("La temperatura es mayor a 36°, ¡mueve tu cultivo!");
-                        } else if (temperature < TEMPERATURE_THRESHOLD_LOW) {
-                            showNotification("La temperatura es menor a 35°, no es necesario mover tu cultivo.");
-                        } else {
-                            showNotification("La temperatura es normal, no es necesario mover tu cultivo.");
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        try {
+                            JSONObject data = new JSONObject(snapshot.getValue(String.class));
+                            double temperature = data.optDouble("Temperatura", 0.0);
+
+                            if (temperature >= TEMPERATURE_THRESHOLD_HIGH) {
+                                showNotification("La temperatura es mayor o igual a 36°, ¡mueve tu cultivo!");
+                            } else if (temperature < TEMPERATURE_THRESHOLD_LOW) {
+                                showNotification("La temperatura es menor a 35°, no es necesario mover tu cultivo.");
+                            } else {
+                                showNotification("La temperatura está entre 35° y 36°, no es necesario mover tu cultivo.");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            showNotification("Error al procesar los datos de temperatura desde Firebase.");
                         }
-                    } else {
-                        showNotification("El valor de temperatura en la base de datos es nulo.");
                     }
                 } else {
                     showNotification("No se encontraron datos en la base de datos.");
@@ -126,6 +128,9 @@ public class SlideshowFragment extends Fragment {
             }
         });
     }
+
+
+
 
     private double extractTemperature(String value) {
         try {
@@ -154,3 +159,4 @@ public class SlideshowFragment extends Fragment {
         btnNotification = null;
     }
 }
+

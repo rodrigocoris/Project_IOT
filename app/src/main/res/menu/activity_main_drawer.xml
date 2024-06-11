@@ -23,6 +23,18 @@
             android:icon="@drawable/datos"
             android:title="Datos en tiempo real" />
         <item
+            android:id="@+id/fragment_consejos"
+            android:icon="@drawable/chat"
+            android:title="Consejos" />
+        <item
+            android:id="@+id/fragment_calendar"
+            android:icon="@drawable/calendario"
+            android:title="Calendario" />
+        <item
+            android:id="@+id/fragment_recordatorios"
+            android:icon="@drawable/recordatorio"
+            android:title="Recordatorios" />
+        <item
             android:id="@+id/mainActivity"
             android:icon="@drawable/temp"
             android:title="Temperatura" />
