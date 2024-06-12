@@ -34,9 +34,5 @@
             android:id="@+id/fragment_recordatorios"
             android:icon="@drawable/recordatorio"
             android:title="Recordatorios" />
-        <item
-            android:id="@+id/mainActivity"
-            android:icon="@drawable/temp"
-            android:title="Temperatura" />
     </group>
 </menu>

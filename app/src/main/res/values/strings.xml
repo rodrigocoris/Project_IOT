@@ -16,5 +16,6 @@
     <string name="menu_gallery">Datos</string>
     <string name="menu_slideshow">Alertas</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Temperatura</string>
+    <string name="hello_blank_fragment">Temperaturasss</string>
+    <string name="fragment_consejos">Consejos</string>
 </resources>

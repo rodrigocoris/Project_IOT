@@ -3,10 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#1B5E20</color>
-    <color name="verde">#1B5E20</color> <!-- Naranja -->
-    <color name="colorSecondary">#1B5E20</color> <!-- Naranja -->
-    <color name="verde2">#45B94D</color> <!-- Naranja -->
-    <color name="colorOrange">#FF9800</color> <!-- Naranja -->
-    <color name="colorYellow">#FFEB3B</color> <!-- Naranja -->
-
+    <color name="verde">#80BD97</color>
+    <color name="verde2">#45B94D</color>
+    <color name="verde3">#68CF70</color>
+    <color name="verde4">#9ACB62</color>
+    <color name="verde5">#7FA681</color>
+    <color name="colorOrange">#FF9800</color>
+    <color name="colorYellow">#FFEB3B</color>
+    <color name="gris">#B9AEAE</color>
+    <color name="gris2">#847F7F</color>
+    <color name="red">#BF1717</color>
+    <color name="blue">#178FBF</color>
 </resources>

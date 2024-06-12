@@ -4,56 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back3"
     tools:context=".fragment_consejos">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/back">
+        android:background="@drawable/back3">
 
         <!-- Title -->
         <TextView
             android:id="@+id/titulo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="315dp"
+            android:layout_height="74dp"
             android:layout_margin="16dp"
-            android:text="Cuidado de tu cultivo. Recordatorios y consejos"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_corners"
+            android:text="Consejos para cuidar tu cultivo"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/gris"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:background="@drawable/rounded_corners"
+            app:layout_constraintBottom_toTopOf="@+id/cuad1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Centered Image -->
-        <ImageView
-            android:id="@+id/imagcenter"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="79dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="15dp"
-            android:src="@drawable/tom"
-            app:layout_constraintBottom_toTopOf="@+id/cuad3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cuad1"
-            app:layout_constraintWidth_percent="0.9" />
 
         <!-- Cuadro 1 -->
 
         <!-- Cuadro 2 -->
+
+        <VideoView
+            android:id="@+id/videoView1"
+            android:layout_width="380dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toTopOf="@+id/cuad2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cuad1" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cuad1"
-            android:layout_width="180dp"
-            android:layout_height="57dp"
+            android:layout_width="245dp"
+            android:layout_height="65dp"
             android:layout_margin="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="46dp"
             android:background="@drawable/rounded_corners2"
-            app:layout_constraintBottom_toTopOf="@+id/imagcenter"
+            app:layout_constraintBottom_toTopOf="@+id/videoView1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.005"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,15 +66,17 @@
 
             <TextView
                 android:id="@+id/texto1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="106dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="8dp"
-                android:text="Tomates"
+                android:text="Tomate"
                 android:textAlignment="viewStart"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/imag1"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,6 +84,7 @@
                 android:id="@+id/rec1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
                 android:text="Tomate de rama"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,28 +101,34 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!-- Cuadro 3 -->
+
+        <!-- Cuadro 4 -->
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cuad2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="198dp"
+            android:layout_height="73dp"
             android:layout_margin="16dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_corners2"
             app:layout_constraintBottom_toTopOf="@+id/cuad4"
             app:layout_constraintEnd_toStartOf="@+id/cuad3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagcenter">
+            app:layout_constraintStart_toStartOf="@+id/cuad1">
 
             <TextView
                 android:id="@+id/texto2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_corners"
                 android:text="Regar"
                 android:textAlignment="viewStart"
                 android:textColor="@color/verde2"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:background="@drawable/rounded_corners"
                 app:layout_constraintEnd_toStartOf="@id/imag2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -123,9 +137,10 @@
                 android:id="@+id/rec2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
-                android:text="Cada 2 días"
                 android:background="@drawable/rounded_corners"
+                android:text="Cada 2 días"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto2" />
 
@@ -140,29 +155,31 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Cuadro 3 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cuad3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="198dp"
+            android:layout_height="73dp"
             android:layout_margin="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_corners2"
             app:layout_constraintBottom_toTopOf="@+id/cuad4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cuad2"
-            app:layout_constraintTop_toBottomOf="@+id/imagcenter">
+            app:layout_constraintStart_toEndOf="@+id/cuad2">
 
             <TextView
                 android:id="@+id/texto3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_corners"
                 android:text="Fertilizar"
                 android:textAlignment="viewStart"
                 android:textColor="@color/verde2"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:background="@drawable/rounded_corners"
                 app:layout_constraintEnd_toStartOf="@id/imag3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -171,9 +188,10 @@
                 android:id="@+id/rec3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
-                android:text="Cada 2 semanas"
                 android:background="@drawable/rounded_corners"
+                android:text="Cada 2 semanas"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto3" />
 
@@ -188,30 +206,31 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Cuadro 4 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cuad4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="430dp"
+            android:layout_height="147dp"
             android:layout_margin="16dp"
+            android:layout_marginStart="7dp"
             android:background="@drawable/rounded_corners2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cuad3">
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/texto4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded_corners"
                 android:text="Trasplantar"
                 android:textAlignment="viewStart"
                 android:textColor="@color/verde2"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:background="@drawable/rounded_corners"
                 app:layout_constraintEnd_toStartOf="@id/imag4"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -219,9 +238,21 @@
                 android:id="@+id/rec4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Cada 6 meses"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_corners"
+                android:text="Cada 6 meses"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/texto4" />
+
+            <TextView
+                android:id="@+id/rec9"
+                android:layout_width="369dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/rounded_corners"
+                android:text="El tomate se trasplanta 2 veces en el cultivo al vaso ó la bolsa de plastico cuando el tomate tenga 3 ó 4 hojas y después se trasplanta al huerto cuando el tomate tenga 5 a 8 hojas."
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto4" />
 
@@ -232,7 +263,8 @@
                 android:src="@drawable/maceta"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.132" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

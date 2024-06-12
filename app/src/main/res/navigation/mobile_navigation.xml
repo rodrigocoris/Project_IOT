@@ -35,15 +35,15 @@
     <fragment
         android:id="@+id/fragment_consejos"
         android:name="com.example.iot.fragment_consejos"
-        android:label="fragment_consejos"
+        android:label="Consejos"
         tools:layout="@layout/fragment_consejos" />
     <fragment
         android:id="@+id/fragment_calendar"
         android:name="com.example.iot.fragment_calendar"
-        android:label="fragment_calendar" />
+        android:label="Calendario" />
     <fragment
         android:id="@+id/fragment_recordatorios"
         android:name="com.example.iot.fragment_recordatorios"
-        android:label="fragment_recordatorios"
+        android:label="Recordatorios"
         tools:layout="@layout/fragment_recordatorios" />
 </navigation>

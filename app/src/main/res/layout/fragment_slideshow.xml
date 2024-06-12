@@ -4,53 +4,175 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/verde"
+    android:background="@drawable/back3"
     tools:context=".ui.slideshow.SlideshowFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="109dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="66dp"
+        android:background="@drawable/rounded_corners6"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/tipo_planta3">
+
+        <TextView
+            android:id="@+id/tipo_planta2"
+            android:layout_width="93dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Mayor a 36°"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="109dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="-5dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="110dp"
+        android:background="@drawable/rounded_corners6"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_notification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/tipo_planta4"
+            android:layout_width="93dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Menor a 35°"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_notification"
-        android:layout_width="140dp"
+        android:layout_width="172dp"
         android:layout_height="55dp"
-        android:layout_marginStart="135dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="41dp"
         android:backgroundTint="#4CAF50"
         android:text="Verificar Temperatura"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="188dp"
-        android:layout_height="68dp"
+        android:layout_width="279dp"
+        android:layout_height="73dp"
         android:layout_marginStart="111dp"
-        android:layout_marginTop="54dp"
         android:layout_marginEnd="112dp"
-        android:layout_marginBottom="102dp"
+        android:background="@drawable/rounded_corners"
         android:text="Alertas"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/gris"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="367dp"
-        android:layout_height="178dp"
+        android:layout_width="379dp"
+        android:layout_height="225dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="74dp"
-        android:text="Este es tu sistema de notificaciones de tu cultivo"
+        android:layout_marginBottom="9dp"
+        android:text="Este es tu sistema de notificaciones de tu cultivo \n cuando se eleve la temperatura te llegara una notificacion para mover tu cultivo o si prefieres puedes verificar la temperatura manualmente."
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_notification"
+        android:textColor="@color/gris2"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="156dp"
+        android:layout_height="187dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="50dp"
+        android:drawableTop="@drawable/maceta"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="No expongas tu cultivo a una temperatura de 36°"
+        app:layout_constraintBottom_toTopOf="@+id/btn_notification"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/tipo_planta3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:text="Niveles de temperatura"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="48dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/rounded_corners6"
+        android:src="@drawable/advertencia2"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/tipo_planta3" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="48dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="-18dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="224dp"
+        android:background="@drawable/rounded_corners6"
+        android:src="@drawable/cheque"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <!-- Tipo de Planta -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

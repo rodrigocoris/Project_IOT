@@ -1,15 +1,22 @@
 package com.example.iot;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
-
+import java.util.Calendar;
 import java.util.HashSet;
 
 public class fragment_recordatorios extends Fragment {
@@ -64,9 +71,9 @@ public class fragment_recordatorios extends Fragment {
         Button btnRec3 = view.findViewById(R.id.rec3);
 
         // Establecer listeners de click para los botones
-        btnRec1.setOnClickListener(v -> handleButtonClick("\n Recordatorio de agua "));
-        btnRec2.setOnClickListener(v -> handleButtonClick("\n Recordatorio de trasplantar "));
-        btnRec3.setOnClickListener(v -> handleButtonClick("\n Recordatorio de fertilizar "));
+        btnRec1.setOnClickListener(v -> handleButtonClick("\nRecordatorio de agua\n"));
+        btnRec2.setOnClickListener(v -> handleButtonClick("Recordatorio de trasplantar\n"));
+        btnRec3.setOnClickListener(v -> handleButtonClick("Recordatorio de fertilizar\n"));
 
         return view;
     }
@@ -76,12 +83,78 @@ public class fragment_recordatorios extends Fragment {
             // Mostrar toast si el recordatorio ya se ha agregado
             Toast.makeText(getContext(), "Este recordatorio ya ha sido agregado", Toast.LENGTH_SHORT).show();
         } else {
-            // Agregar recordatorio si no está ya agregado
-            remindersSet.add(message);
-            String currentText = textViewReminders.getText().toString();
-            textViewReminders.setText(currentText + "\n" + message);
-            // Mostrar toast para indicar que el recordatorio se ha agregado
-            Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            // Solicitar fecha y hora para la alarma
+            showDateTimePicker(message);
         }
     }
+
+    private void showDateTimePicker(String message) {
+        Calendar calendar = Calendar.getInstance();
+
+        // Asegurarse de que el contexto no sea nulo
+        Context context = getContext();
+        if (context == null) {
+            Toast.makeText(getContext(), "Error: Contexto no disponible", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Mostrar el DatePickerDialog
+        new DatePickerDialog(context, (dateView, year, month, dayOfMonth) -> {
+            calendar.set(Calendar.YEAR, year);
+            calendar.set(Calendar.MONTH, month);
+            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+            // Mostrar el TimePickerDialog
+            new TimePickerDialog(context, (timeView, hourOfDay, minute) -> {
+                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                calendar.set(Calendar.MINUTE, minute);
+                calendar.set(Calendar.SECOND, 0);
+
+                // Añadir el recordatorio y configurar la alarma
+                addReminder(message);
+                setAlarm(calendar, message);
+            }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show();
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+    private void addReminder(String message) {
+        remindersSet.add(message);
+        String currentText = textViewReminders.getText().toString();
+        textViewReminders.setText(currentText + "\n" + message);
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @SuppressLint("ScheduleExactAlarm")
+    private void setAlarm(Calendar calendar, String message) {
+        Context context = getContext();
+        if (context == null) return;
+
+        try {
+            Intent intent = new Intent(context, AlarmReceiver.class);
+            intent.putExtra("message", message);
+
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                    context,
+                    (int) System.currentTimeMillis(),
+                    intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+            );
+
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager != null) {
+                if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
+                    calendar.add(Calendar.DAY_OF_YEAR, 1);
+                }
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+                Toast.makeText(context, "Alarma configurada para " + message, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Error: No se pudo acceder al AlarmManager", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Log.e("AlarmSetup", "Error al configurar la alarma", e);
+            Toast.makeText(context, "Error al configurar la alarma: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 }
