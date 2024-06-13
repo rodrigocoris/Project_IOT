@@ -80,7 +80,7 @@ public class SlideshowFragment extends Fragment {
 
     private void showNotification(String message) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-                .setSmallIcon(R.drawable.jardineria)
+                .setSmallIcon(R.drawable.logo)
                 .setContentTitle("iPlanta")
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);

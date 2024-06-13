@@ -206,7 +206,7 @@
             android:layout_margin="16dp"
             android:background="@drawable/rounded_corners2"
             android:padding="16dp"
-            android:text="Tus recordatorios:"
+            android:text="Tus recordatorios:\n"
             android:textColor="@color/verde2"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"

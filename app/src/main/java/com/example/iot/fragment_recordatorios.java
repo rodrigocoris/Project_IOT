@@ -3,10 +3,14 @@ package com.example.iot;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +19,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -22,13 +28,11 @@ import java.util.HashSet;
 public class fragment_recordatorios extends Fragment {
 
     private TextView textViewReminders;
-    private HashSet<String> remindersSet; // Para rastrear los recordatorios agregados
+    private HashSet<String> remindersSet;
 
-    // TODO: Rename parameter arguments, choose names that match
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -52,26 +56,20 @@ public class fragment_recordatorios extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        remindersSet = new HashSet<>(); // Inicializar el conjunto
+        remindersSet = new HashSet<>();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflar el diseño para este fragmento
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recordatorios, container, false);
 
-        // Encontrar el TextView
         textViewReminders = view.findViewById(R.id.textView_reminders);
 
-        // Encontrar botones por sus IDs
         Button btnRec1 = view.findViewById(R.id.rec1);
         Button btnRec2 = view.findViewById(R.id.rec2);
         Button btnRec3 = view.findViewById(R.id.rec3);
 
-        // Establecer listeners de click para los botones
-        btnRec1.setOnClickListener(v -> handleButtonClick("\nRecordatorio de agua\n"));
+        btnRec1.setOnClickListener(v -> handleButtonClick("Recordatorio de agua\n"));
         btnRec2.setOnClickListener(v -> handleButtonClick("Recordatorio de trasplantar\n"));
         btnRec3.setOnClickListener(v -> handleButtonClick("Recordatorio de fertilizar\n"));
 
@@ -80,39 +78,33 @@ public class fragment_recordatorios extends Fragment {
 
     private void handleButtonClick(String message) {
         if (remindersSet.contains(message)) {
-            // Mostrar toast si el recordatorio ya se ha agregado
             Toast.makeText(getContext(), "Este recordatorio ya ha sido agregado", Toast.LENGTH_SHORT).show();
         } else {
-            // Solicitar fecha y hora para la alarma
             showDateTimePicker(message);
         }
     }
 
     private void showDateTimePicker(String message) {
         Calendar calendar = Calendar.getInstance();
-
-        // Asegurarse de que el contexto no sea nulo
         Context context = getContext();
         if (context == null) {
             Toast.makeText(getContext(), "Error: Contexto no disponible", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Mostrar el DatePickerDialog
         new DatePickerDialog(context, (dateView, year, month, dayOfMonth) -> {
             calendar.set(Calendar.YEAR, year);
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-            // Mostrar el TimePickerDialog
             new TimePickerDialog(context, (timeView, hourOfDay, minute) -> {
                 calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 calendar.set(Calendar.MINUTE, minute);
                 calendar.set(Calendar.SECOND, 0);
 
-                // Añadir el recordatorio y configurar la alarma
                 addReminder(message);
                 setAlarm(calendar, message);
+                sendNotification(context, "Alarma configurada", "La alarma para " + message + " ha sido configurada.");
             }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show();
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
@@ -156,5 +148,26 @@ public class fragment_recordatorios extends Fragment {
         }
     }
 
+    private void sendNotification(Context context, String title, String message) {
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("alarm_channel", "Alarma", NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription("Canal para alarmas");
+            channel.enableLights(true);
+            channel.setLightColor(Color.RED);
+            channel.enableVibration(true);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "alarm_channel")
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+
+        notificationManager.notify((int) System.currentTimeMillis(), builder.build());
+    }
 }
+

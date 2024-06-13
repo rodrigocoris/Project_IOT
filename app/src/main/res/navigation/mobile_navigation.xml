@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.iot.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="Predicciones"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/temp_fragment"
         android:name="com.example.iot.temp_fragment"
-        android:label="Temperatura"
+        android:label="Datos en tiempo real"
         tools:layout="@layout/fragment_temp_fragment" />
     <fragment
         android:id="@+id/fragment_consejos"

@@ -46,7 +46,7 @@
                 android:id="@+id/subtitulo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Cherry Tomatoes"
+                android:text="Tomates"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="20sp"
