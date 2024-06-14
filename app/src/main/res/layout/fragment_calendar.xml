@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back3"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:textAlignment="center">
 
     <!-- Título Principal -->
 
@@ -46,7 +47,7 @@
                 android:id="@+id/subtitulo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Tomates"
+                android:text="Chile Piquin"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="20sp"
@@ -61,7 +62,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Zona de tolerancia climática 5"
+                android:drawableStart="@drawable/cal"
+                android:drawablePadding="8dp"
+                android:text="Zona de tolerancia climática 9"
                 android:textColor="#2C7D6D"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -82,14 +85,17 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="295dp"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:textAlignment="center">
 
                     <!-- Plantar Semillas -->
+
+                    <!-- Divider -->
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="165dp"
+                        android:layout_width="100dp"
+                        android:layout_height="260dp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_corners3"
                         android:gravity="center_horizontal"
@@ -100,8 +106,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Plantar semillas\n"
+                            android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:textSize="10sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -109,31 +116,30 @@
                             android:layout_width="89dp"
                             android:layout_height="43dp"
                             android:gravity="center"
-                            android:text="Lo mejor esta en"
+                            android:text="Lo mejor esta en \n\n"
                             android:textColor="@color/gris2"
-                            android:textSize="12sp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/fecha_plantar_semillas2"
-                            android:layout_width="86dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="82dp"
+                            android:layout_height="100dp"
                             android:gravity="center"
-                            android:text="Feb 1 \n- \n Mar 18\n  "
+                            android:text="\nFebrero 18\n- \n Abril 20\n  "
                             android:textColor="#ffff"
-                            android:textSize="12dp" />
+                            android:textSize="15dp" />
 
                         <Button
                             android:id="@+id/button"
-                            android:layout_width="80dp"
-                            android:layout_height="30dp"
+                            android:layout_width="90dp"
+                            android:layout_height="40dp"
                             android:backgroundTint="#E8D313"
                             android:text="Ver mas"
-                            android:textSize="8sp" />
+                            android:textSize="10sp" />
 
 
                     </LinearLayout>
 
-                    <!-- Divider -->
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
@@ -141,8 +147,8 @@
 
                     <!-- Plantar Plántulas -->
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="165dp"
+                        android:layout_width="100dp"
+                        android:layout_height="260dp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_corners5"
                         android:gravity="center_horizontal"
@@ -153,35 +159,36 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Plantar plántulas\n"
+                            android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:textSize="10sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/fecha_plantar_plantulas"
-                            android:layout_width="86dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="104dp"
+                            android:layout_height="71dp"
                             android:gravity="center"
-                            android:text="10 °C min\n8 cm de alto\n"
+                            android:text="15 °C min\n30 cm de alto\n"
                             android:textColor="@color/gris2"
-                            android:textSize="12sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/fecha_plantar_plantulas2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="7-11 semanas\ndespués de la plantación\n"
+                            android:text="2-4 semanas\ndespués de la plantación\n"
                             android:textColor="#ffff"
-                            android:textSize="12sp" />
+                            android:textSize="15sp" />
 
                         <Button
                             android:id="@+id/button2"
-                            android:layout_width="80dp"
-                            android:layout_height="30dp"
+                            android:layout_width="90dp"
+                            android:layout_height="40dp"
                             android:backgroundTint="#8BC34A"
                             android:text="Ver mas"
-                            android:textSize="8sp" />
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <!-- Divider -->
@@ -192,8 +199,8 @@
 
                     <!-- Cultivos de Cosecha -->
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="165dp"
+                        android:layout_width="100dp"
+                        android:layout_height="260dp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_corners4"
                         android:gravity="center_horizontal"
@@ -204,8 +211,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Cultivos de cosecha\n"
+                            android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:textSize="10sp"
+                            android:textSize="19sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -213,26 +221,26 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Revisar\n periodicamente\n"
+                            android:text="Revisar periodicamente\n\n"
                             android:textColor="@color/gris2"
-                            android:textSize="12sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:id="@+id/fecha_cultivos_de_cosecha2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="74dp"
                             android:gravity="center"
-                            android:text="7-9 semanas\ndespués de la plantación\n"
+                            android:text="1-2 semanas\ndespués de la plantación\n"
                             android:textColor="#fff"
-                            android:textSize="12sp" />
+                            android:textSize="15sp" />
 
                         <Button
                             android:id="@+id/button3"
-                            android:layout_width="80dp"
-                            android:layout_height="30dp"
+                            android:layout_width="90dp"
+                            android:layout_height="40dp"
                             android:backgroundTint="#4CAF50"
                             android:text="Ver mas"
-                            android:textSize="8sp" />
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -253,7 +261,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:text="Espaciado de semillas\n45-59 cm"
+                android:text="Espaciado de semillas\n2-3 cm entre cada una."
                 android:textColor="@color/verde"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -336,7 +344,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="5 a 8 pies de altura"
+                            android:text="60 a 90 cm de altura"
                             android:textColor="#000000"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -366,7 +374,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="Franco, bien drenado"
+                            android:text="Suelo drenado con materia orgánica"
                             android:textColor="#000000"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -385,7 +393,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="pH del suelo"
+                            android:text="PH del suelo"
                             android:textColor="#000000"
                             android:textSize="14sp" />
 
@@ -396,7 +404,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="6.0-6.8"
+                            android:text="6.0 a 7.5"
                             android:textColor="#000000"
                             android:textSize="14sp" />
                     </LinearLayout>

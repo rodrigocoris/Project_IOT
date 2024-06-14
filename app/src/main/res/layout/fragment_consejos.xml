@@ -70,7 +70,7 @@
                 android:layout_height="28dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="8dp"
-                android:text="Tomate"
+                android:text="Chiles"
                 android:textAlignment="viewStart"
                 android:textColor="#000000"
                 android:textSize="24sp"
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
-                android:text="Tomate de rama"
+                android:text="Chile Piquín"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto1" />
 
@@ -94,7 +94,7 @@
                 android:id="@+id/imag1"
                 android:layout_width="73dp"
                 android:layout_height="54dp"
-                android:src="@drawable/tomate"
+                android:src="@drawable/chile"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -140,7 +140,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/rounded_corners"
-                android:text="Cada 2 días"
+                android:text="Diariamente"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto2" />
 
@@ -191,7 +191,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/rounded_corners"
-                android:text="Cada 2 semanas"
+                android:text="Cada 4 a 6 semanas"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto3" />
 
@@ -241,7 +241,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_corners"
-                android:text="Cada 6 meses"
+                android:text="Entre 6 a 8 semanas"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto4" />
 
@@ -252,7 +252,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/rounded_corners"
-                android:text="El tomate se trasplanta 2 veces en el cultivo al vaso ó la bolsa de plastico cuando el tomate tenga 3 ó 4 hojas y después se trasplanta al huerto cuando el tomate tenga 5 a 8 hojas."
+                android:text="El trasplante de las plantas de chile piquín debe realizarse cuando las plántulas tienen entre 6 y 8 semanas de edad o han desarrollado al menos 4 a 6 hojas verdaderas. Elige un día nublado o trasplanta por la tarde para evitar el calor "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto4" />
 

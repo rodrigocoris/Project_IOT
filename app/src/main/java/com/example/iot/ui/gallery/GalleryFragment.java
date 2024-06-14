@@ -50,8 +50,9 @@ public class GalleryFragment extends Fragment {
         imageDataList.add(new ImageData(R.drawable.humedad, "Humedad"));
         imageDataList.add(new ImageData(R.drawable.temperatura_humedad, "Temperatura y Humedad"));
         imageDataList.add(new ImageData(R.drawable.machinelearning, "Prediccion con machine learning"));
-        imageDataList.add(new ImageData(R.drawable.series_de_tiempo_temperatura, "Series de tiempo temperatura"));
-        imageDataList.add(new ImageData(R.drawable.series_de_tiempo_humedad, "Series de tiempo humedad"));
+        imageDataList.add(new ImageData(R.drawable.series_temperatura, "Series de tiempo temperatura"));
+        imageDataList.add(new ImageData(R.drawable.series_humedad, "Series de tiempo humedad"));
+        imageDataList.add(new ImageData(R.drawable.series_combinado, "Series de tiempo temperatura y humedad"));
         imageDataList.add(new ImageData(R.drawable.distribucion_temperatura, "Distribuciones temperatura"));
         imageDataList.add(new ImageData(R.drawable.distribucion_humedad, "Distribuciones humedad"));
         imageDataList.add(new ImageData(R.drawable.correlacion_temperatura_humedad, "Correlacion de temperatura y humedad"));
